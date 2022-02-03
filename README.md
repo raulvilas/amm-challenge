@@ -18,17 +18,37 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Context
+Molecule is launching a new Decentralized Exchange (DEX) with integrated Automated Market Maker (AMM) and Staking/Farming features. A Senior Engineer asks you to contribute with some minor tasks - mainly front-end - to speed up the delivery. You have to complete them by making your own choices autonomosly and being ready to discuss the tradeoffs you settled on while doing so.
 
-To learn more about Next.js, take a look at the following resources:
+## Tasks
+### 1 - Add background to navigation component on page scroll
+When the user scrolls down the page a backdrop should be shown behind the navigation (slightly transparent black background with blur)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2 - Enable scroll on modal component content
+Currently the modal content does not scroll, the entire page scrolls instead. See token list modal on the swap page as an example. Apply the following changes when the modal component is open: 
+- Block scrolling on the underlying body
+- Allow scrolling of the modal content inside of the fixed height of the modal window (mostly necessary for token list modal)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 3 - Fix premature closing behaviour on modal component
+Example: Token list modal component
+When you mousedown inside the modal content, move your cursor outside of the modal and then release (mouseup) the modal closes. This should be avoided. Make sure that the modal only closes on mousedown when clicking on the modal backdrop.
 
-## Deploy on Vercel
+### 4 - Add fade-in and fade-out effect to modal open and close
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5 - Add global state management with local storage persistence
+Add a lightweight global state management solution. The global state should be persisted entirely to local storage and loaded each time on app initialization. We could try to use Redux, Hookstate, or rely on React Context as well. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Currently we need to store only user settings:
+
+    slippage (number)
+    transactionDeadline (number)
+    disableMultihops (boolean)
+    tokens (Array of Token)
+
+No database persistence needed for now.
+
+*Be ready to describe why did you end up choosing your preferred solution*
+
+## Finish
+Once you finished the tasks and are happy with the result please commit and push the changes to your repo. Than you can give access to `carlomallone`.
