@@ -1,8 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+* Clone the current repo to your local environment.
+* Create a private repo in your github account and push.
+
+For local development, run the server:
 
 ```bash
 npm run dev
@@ -11,15 +12,12 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is a basic [`create-next-app`](https://nextjs.org/docs/api-reference/create-next-app) application so act accordingly.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 ## Context
 Molecule is launching a new Decentralized Exchange (DEX) with integrated Automated Market Maker (AMM) and Staking/Farming features. A Senior Engineer asks you to contribute with some minor tasks - mainly front-end - to speed up the delivery. You have to complete them by making your own choices autonomosly and being ready to discuss the tradeoffs you settled on while doing so.
+
 
 ## Tasks
 ### 1 - Add background to navigation component on page scroll
@@ -49,6 +47,7 @@ Currently we need to store only user settings:
 No database persistence needed for now.
 
 *Be ready to describe why did you end up choosing your preferred solution*
+
 
 ## Finish
 Once you finished the tasks and are happy with the result please commit and push the changes to your repo. Than you can give access to `carlomallone`.
