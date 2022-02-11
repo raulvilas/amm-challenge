@@ -12,6 +12,11 @@
   display: flex
   justify-content: center
   align-items: center
+  transition: transform 1s opacity 0.4s
+
+  .show
+    opacity: 1
+    transform: scale(1)
 
   .main
     display: flex
@@ -30,3 +35,35 @@
 
 .modalContent
   color: $colorTextDimmed
+  width: 100%
+  height: 100%
+  overflow-y: scroll
+  padding-bottom: 100px
+
+.tilein
+  // time | timing-function | fill-mode | name
+  animation: 1s ease-in-out both fade-in
+
+.tileout
+  // time | timing-function | fill-mode | name
+  animation: 1s ease-in-out both fade-out
+
+@keyframes fade-in
+  0%
+    opacity: 0
+    transform: scale(0)
+  100%
+    opacity: 1
+    transform: scale(1)
+
+@keyframes fade-out
+  0%
+    opacity: 1
+    transform: scale(1)
+  100%
+    opacity: 0
+    transform: scale(0)
+
+
+
+

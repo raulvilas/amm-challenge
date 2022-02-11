@@ -8,7 +8,19 @@
   display: flex
   justify-content: center
   padding: $defaultPadding*1.25
-  z-index: 999
+
+.containerBackDrop
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  display: flex
+  justify-content: center
+  padding: $defaultPadding*1.25
+  background: black
+  opacity: 0.9
+  filter: blur(1px)
+  z-index:999
 
 .logo
   display: flex

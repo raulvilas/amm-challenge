@@ -21,8 +21,21 @@ export default function Navigation({active}: Props) {
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [walletOpen, setWalletOpen] = useState(false);
   const {account, active: walletActive, error, activate} = useWeb3React();
+  const [scrollY, setScrollY] = useState(0);
+
+  function logit() {
+    setScrollY(window.pageYOffset);
+    console.log(new Date().getTime());
+  }
 
   useEffect(() => {
+    function watchScroll() {
+      window.addEventListener("scroll", logit);
+    }
+    watchScroll();
+    return () => {
+      window.removeEventListener("scroll", logit);
+    };
     eagerConnectMetamask();
   }, []);
 
@@ -36,7 +49,7 @@ export default function Navigation({active}: Props) {
   const isWrongNetwork = error && error instanceof UnsupportedChainIdError;
 
   return (
-    <div className={styles.container}>
+    <div className={ scrollY == 0 ? styles.container : styles.containerBackDrop}>
       <Link href="/">
         <a className={styles.logo}>
           <img src="/bio-logo.svg" alt="BIO Logo" />

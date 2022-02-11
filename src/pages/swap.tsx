@@ -1,7 +1,7 @@
 import type {NextPage} from 'next';
 import {useRouter} from 'next/router';
 import {ParsedUrlQuery} from 'querystring';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import {
   IoArrowDown,
   IoSettingsOutline,
@@ -16,6 +16,7 @@ import TokenSelectModal from '../components/token-select-modal';
 import {Token} from '../types/token';
 import useTokenLists from '../hooks/use-token-lists';
 import {defaultSwapTokenAddresses} from '../constants/config';
+import AppCtx from './app/AppContext';
 
 type TokenPair = {
   from: Token | null | undefined;
@@ -28,7 +29,7 @@ const SwapPage: NextPage = () => {
   const [fromTokenSelectOpen, setFromTokenSelectOpen] = useState(false);
   const [toTokenSelectOpen, setToTokenSelectOpen] = useState(false);
   const {defaultTokenList} = useTokenLists();
-
+  const appContext = useContext(AppCtx);
   useEffect(() => {
     console.log(defaultTokenList)
     if (router.isReady && defaultTokenList) {
@@ -88,7 +89,6 @@ const SwapPage: NextPage = () => {
     setTokens(newTokens);
   };
 
-
   console.log(tokens)
   return (
     <div className={styles.container}>
@@ -99,7 +99,7 @@ const SwapPage: NextPage = () => {
           <h2>Swap</h2>
           <button className={styles.settingsButton}>
             <span className={styles.slippageValue}>
-              Slippage: <b>0.5%</b>
+              Slippage: <b>{appContext.slippage}</b>
             </span>
             <IoSettingsOutline className={styles.settingsIcon} />
           </button>

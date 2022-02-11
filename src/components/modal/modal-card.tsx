@@ -9,7 +9,7 @@ interface Props {
 
 export default function ModalCard({children, className}: Props) {
   return (
-    <Card className={`${styles.modalCard} ${className ? className : ''}`}>
+    <Card className={`${styles.modalCard} ${styles.tile} ${className ? className : ''}`}>
       {children}
     </Card>
   );
